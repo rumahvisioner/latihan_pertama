@@ -1,0 +1,24 @@
+# ============================================================
+# Berkas publikasi: index.html, Aset/, Foto/, Logo Klien/web/,
+# robots.txt dan sitemap.xml. Lihat DEPLOY.md untuk tahap akhir.
+# Selebihnya di bawah ini adalah file kerja lokal.
+# ============================================================
+
+# Aset sumber resolusi penuh — disimpan lokal sebagai cadangan.
+_arsip/
+
+# Dokumen perencanaan dan skrip pembangun.
+PRD_Landing_Page_Jasa_Mohamad_Arif_Pramarta_v2.docx
+build_prd_landing_page.py
+_prd_render/
+
+# Materi kerja dan eksperimen.
+Portofolio/
+_cv_policy_ai_work/
+testimonial-react/
+
+# Cache, sementara, dan konfigurasi perkakas.
+tmp/
+.vite/
+.codex-backups/
+.claude/

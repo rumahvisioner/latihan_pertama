@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /_arsip/
+
+# Ganti DOMAIN-ANDA.com dengan domain produksi sebelum deploy.
+Sitemap: https://DOMAIN-ANDA.com/sitemap.xml
