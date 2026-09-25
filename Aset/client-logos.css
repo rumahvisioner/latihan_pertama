@@ -1,0 +1,17 @@
+.client-logos.is-entering .client-logo-item {
+  animation: client-logo-reveal 1600ms ease-in-out both;
+  animation-delay: calc(var(--logo-order, 0) * 650ms);
+}
+.client-logo-item img { transition: transform 300ms ease; }
+@media (hover: hover) {
+  .client-logo-item:hover img { transform: scale(1.045); }
+}
+@keyframes client-logo-reveal {
+  from { opacity: 0; transform: translateY(12px) scale(.97); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .client-logos.is-entering .client-logo-item { animation: none; }
+  .client-logo-item img { transition: none; }
+  .client-logo-item:hover img { transform: none; }
+}
