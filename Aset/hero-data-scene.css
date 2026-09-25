@@ -1,0 +1,70 @@
+.hero .hero-lede-cluster { display: block; padding: 0; overflow: visible; background: none; animation: none; }
+.hero::after { display: none; }
+.regression-inline { --plot-height: clamp(210px, 19vw, 240px); position: relative; display: block; margin: -30px 0 16px; padding: 0; border: 0; background: none; box-shadow: none; }
+.regression-plot { display: block; width: 100%; height: var(--plot-height); overflow: hidden; animation: regression-appear 1.5s ease-out both; }
+.regression-band { fill: #367f8c; opacity: 0.1; }
+.regression-line { fill: none; stroke: #0d6570; stroke-width: 1.8; stroke-linecap: round; vector-effect: non-scaling-stroke; }
+.regression-dot { fill: #35798a; opacity: 0.72; stroke: white; stroke-width: 1.2; vector-effect: non-scaling-stroke; }
+.regression-dot.is-active { opacity: 1; fill: #10253f; stroke: #79c5c7; stroke-width: 2; }
+.regression-spotlight { opacity: 0; pointer-events: none; }
+.regression-spotlight.is-active { opacity: 1; }
+.regression-band-focus { fill: #0d6570; opacity: 0.18; }
+.regression-fit-focus { fill: #0d6570; stroke: white; stroke-width: 2; vector-effect: non-scaling-stroke; }
+.regression-inline figcaption { margin-top: 3px; color: #49636e; font-size: 0.875rem; line-height: 1.5; }
+.regression-inline figcaption span { color: #5e6b7c; }
+.regression-plot:focus-visible { outline: 2px solid #0d6570; outline-offset: 4px; border-radius: 4px; }
+@keyframes regression-appear { from { opacity: 0; } to { opacity: 1; } }
+@media (max-width: 720px) { .regression-plot { animation: none; } .regression-inline { --plot-height: 240px; margin-block: 8px 16px; } }
+@media (prefers-reduced-motion: reduce) { .regression-plot { animation: none; } }
+
+/* Keep full-width text in the clear space above the shortened curve. */
+.regression-lede { position: absolute; top: 38px; left: 0; z-index: 1; width: 100%; margin: 0; color: #4e5c6f; font-size: clamp(1.04rem, 1.55vw, 1.18rem); line-height: 1.62; pointer-events: none; }
+.regression-lede::before { content: none; }
+@media (max-width: 520px) { .regression-lede { font-size: 1rem; line-height: 1.56; } }
+@media (max-width: 520px) { .regression-inline { --plot-height: 170px; } .regression-lede { position: static; margin-bottom: 8px; pointer-events: auto; } }
+
+/* Size the photo column to the photo itself, avoiding a second hidden gutter. */
+@media (min-width: 961px) {
+  .hero { grid-template-columns: minmax(0, 600px) clamp(320px, 32vw, 400px); column-gap: 24px; justify-content: center; }
+  .hero > .hero-visual { width: 100%; justify-self: stretch; }
+}
+
+#hero-title { max-width: 100%; font-size: clamp(2.25rem, 4vw, 3.5rem); line-height: 1.12; letter-spacing: -0.04em; }
+#hero-title span { font-size: inherit; }
+@media (max-width: 520px) { #hero-title { font-size: clamp(2rem, 8.5vw, 2.5rem); } }
+
+@media (min-width: 521px) and (max-width: 720px) { .regression-inline { margin-top: -30px; } }
+
+/* Compact layouts only: keep the approved wide desktop composition intact. */
+@media (max-width: 1100px) {
+  .hero { row-gap: 24px; padding-block: 28px; }
+  .hero-copy { max-width: none; }
+  .hero-lede br, .regression-lede br { display: none; }
+  .hero .hero-lede { font-size: 1rem; line-height: 1.6; }
+  .regression-inline { --plot-height: clamp(130px, 19vw, 175px); margin: 14px 0 12px; }
+  .regression-lede { position: static; width: auto; margin: 0 0 8px; font-size: 1rem; line-height: 1.6; pointer-events: auto; }
+  .regression-inline figcaption { margin-top: 4px; font-size: .8rem; }
+  .hero-actions { gap: 10px; margin-top: 16px; }
+  .hero-actions .button { min-width: 0; padding-inline: 16px; }
+}
+@media (min-width: 800px) and (max-width: 1100px) {
+  .hero { grid-template-columns: minmax(0, 1fr) clamp(260px, 29vw, 320px); column-gap: 24px; align-items: center; }
+  .hero > .hero-visual { width: 100%; justify-self: stretch; }
+  #hero-title { font-size: clamp(2rem, 3.8vw, 2.6rem); }
+  .portrait-frame { height: clamp(300px, 35vw, 360px); }
+  .portrait-caption { gap: 8px; padding-inline: 2px; }
+  .portrait-caption::after { display: none; }
+  .portrait-tag { font-size: .65rem; letter-spacing: .035em; }
+}
+@media (max-width: 799px) {
+  .hero { grid-template-columns: minmax(0, 1fr); gap: 22px; }
+  #hero-title { font-size: clamp(2rem, 5.6vw, 2.6rem); }
+  .hero > .hero-visual { width: min(100%, 340px); justify-self: center; }
+  .portrait-frame { height: 280px; }
+  .service-hierarchy { margin-top: 0; }
+}
+@media (max-width: 520px) {
+  .hero { padding-top: 22px; gap: 20px; }
+  .regression-inline { --plot-height: clamp(110px, 32vw, 155px); }
+  .portrait-frame { height: clamp(225px, 62vw, 260px); }
+}
